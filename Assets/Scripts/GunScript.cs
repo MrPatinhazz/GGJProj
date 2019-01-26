@@ -85,10 +85,10 @@ public class GunScript : MonoBehaviour
                 hitNormal = hit.normal;
 
             }
-            /*
+            
             Effect(hitPos, hitNormal);
             timeToSpawnEffect = Time.time + 1 / effectSpawnRate;
-            */
+            
         }
     }
 
