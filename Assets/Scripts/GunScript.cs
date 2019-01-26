@@ -10,10 +10,10 @@ public class GunScript : MonoBehaviour
 
     public Transform BulletTrailPrefab;
     public Transform MuzzleFlashPrefab;
-    float timeToSpawnEffect = 0;
+    private float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
 
-    float timeToFire = 0;
+    private float timeToFire = 0;
     Transform firePoint;
 
     // Use this for initialization
@@ -24,10 +24,6 @@ public class GunScript : MonoBehaviour
         {
             Debug.LogError("No firePoint? WHAT?!");
         }
-    }
-
-    void Start()
-    {
     }
 
     // Update is called once per frame

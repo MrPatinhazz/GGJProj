@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 	[System.Serializable]
 	public class PlayerStats {
 		public int Health = 100;
+        public int Wood = 0;
 	}
 
 	public PlayerStats playerStats = new PlayerStats();
@@ -20,5 +21,10 @@ public class PlayerController : MonoBehaviour {
 			GameMaster.KillPlayer(this);
 		}
 	}
+
+    public void GiveWood (int wood)
+    {
+        playerStats.Wood += wood;
+    }
 
 }

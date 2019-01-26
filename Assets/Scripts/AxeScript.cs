@@ -5,6 +5,9 @@ using UnityEngine;
 public class AxeScript : MonoBehaviour
 {
     public GameObject tree;
+    public float swingRate = 1;
+    public int swingDmg = 35;
+    private float _timeToSwing = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +26,18 @@ public class AxeScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         Debug.Log("Can cut");
-        if(Input.GetMouseButton(0) || Input.GetMouseButton(1))
+        if(Input.GetButton("Fire1") && Time.time > _timeToSwing)
         {
-            Debug.Log("Cutting");
+            _timeToSwing = Time.time + 1 / swingRate;
+            Swing(other);
         }
+    }
+
+    private void Swing(Collider2D _tree)
+    {
+        TreeController cTree = _tree.gameObject.GetComponent<TreeController>();
+        cTree.DamageTree(swingDmg);
+        Debug.Log("Tree hit for " + swingDmg);
     }
 
 }

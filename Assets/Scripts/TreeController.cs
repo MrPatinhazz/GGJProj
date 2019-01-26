@@ -11,12 +11,15 @@ public class TreeController : MonoBehaviour
     }
 
     public TreeStats stats = new TreeStats();
-
+    public PlayerController player;
+    
     public void DamageTree(int damage)
     {
         stats.Health -= damage;
         if (stats.Health <= 0)
         {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            player.GiveWood(30);
             GameMaster.CutTree(this);
         }
     }

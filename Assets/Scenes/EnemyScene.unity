@@ -627,6 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats:
     Health: 100
+    Wood: 0
 --- !u!114 &1425747495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,6 +868,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 511749416}
+  swingRate: 1
+  swingDmg: 35
 --- !u!61 &1932928047
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1040,6 +1043,11 @@ PrefabInstance:
     - target: {fileID: 5451745308940800802, guid: 8b71d5478c5d46c4c94d36b0812d017d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451745308940800804, guid: 8b71d5478c5d46c4c94d36b0812d017d,
+        type: 3}
+      propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
