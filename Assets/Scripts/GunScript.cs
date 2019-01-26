@@ -9,7 +9,6 @@ public class GunScript : MonoBehaviour
     public LayerMask whatToHit;
 
     public Transform BulletTrailPrefab;
-    public Transform HitPrefab;
     public Transform MuzzleFlashPrefab;
     float timeToSpawnEffect = 0;
     public float effectSpawnRate = 10;
@@ -104,12 +103,6 @@ public class GunScript : MonoBehaviour
         }
 
         Destroy(trail.gameObject, 0.04f);
-
-        if (hitNormal != new Vector3(9999, 9999, 9999))
-        {
-            Transform hitParticle = Instantiate(HitPrefab, hitPos, Quaternion.FromToRotation(Vector3.right, hitNormal)) as Transform;
-            Destroy(hitParticle.gameObject, 1f);
-        }
 
         Transform clone = Instantiate(MuzzleFlashPrefab, firePoint.position, firePoint.rotation) as Transform;
         clone.parent = firePoint;
