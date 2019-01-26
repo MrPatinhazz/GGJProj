@@ -14,12 +14,13 @@ public class WaveSpawner : MonoBehaviour
         public int count;
         public float rate;
     }
-
     public Wave[] waves;
     private int _nextWave = 0;
 
+    public Transform[] spawnPoints;
+
     public float timeBetweenWaves = 5f;
-    public float waveCountdown;
+    private float waveCountdown;
 
     private float _searchCtd = 1f;
 
@@ -102,13 +103,16 @@ public class WaveSpawner : MonoBehaviour
             //can finish here
             Debug.Log("All waves completed");
         }
-
-        _nextWave++;
+        else
+        {
+            _nextWave++;
+        }
+        
     }
 
     void SpawnEnemy (Transform _enemy)
     {
-        Instantiate(_enemy, transform.position, transform.rotation);
-        Debug.Log("spawn enemy" + _enemy.name);
+        Transform _sp = spawnPoints[Random.Range(0,spawnPoints.Length)];
+        Instantiate(_enemy, _sp.position, _sp.rotation);
     }
 }
