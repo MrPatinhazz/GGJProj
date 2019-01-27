@@ -21,6 +21,10 @@ public class FamilyManager : MonoBehaviour
     }
     public LeaveCostList[] leaveCostList;
 
+    public GameObject MainMenu;
+    public TimeManager tMan;
+    public WaveSpawner wSpawn;
+
     public int day;
     public Text dayText;
     public PlayerController player;
@@ -97,6 +101,12 @@ public class FamilyManager : MonoBehaviour
         }
         UpdateUpKeep();
         UpdateTexts();
+
+        player.transform.position = new Vector3(57.69f, -28.73f, 0.0f);
+
+        MainMenu.SetActive(false);
+        tMan.RestartTimer();
+
 
     }
 

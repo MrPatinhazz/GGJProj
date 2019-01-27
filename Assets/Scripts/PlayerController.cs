@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     
 	public PlayerStats playerStats = new PlayerStats();
 
+
     public Text foodText;
     public Text woodText;
 
@@ -27,9 +28,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void DamagePlayer (int damage) {
 		playerStats.Health -= damage;
-		if (playerStats.Health <= 0) {
-			GameMaster.KillPlayer(this);
-		}
+        Application.Quit();
 	}
 
     public void GiveWood (int wood)

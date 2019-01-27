@@ -5135,6 +5135,7 @@ GameObject:
   - component: {fileID: 937057601}
   - component: {fileID: 937057603}
   - component: {fileID: 937057604}
+  - component: {fileID: 937057605}
   m_Layer: 10
   m_Name: GameController
   m_TagString: GM
@@ -5171,7 +5172,11 @@ MonoBehaviour:
   waves:
   - name: wave1
     enemy: {fileID: 258586958629047281, guid: 9b90d7856336fc84bb4b57b609b12dbb, type: 3}
-    count: 5
+    count: 10
+    rate: 1
+  - name: wave2
+    enemy: {fileID: 258586958629047281, guid: 9b90d7856336fc84bb4b57b609b12dbb, type: 3}
+    count: 20
     rate: 1
   spawnPoints:
   - {fileID: 1409135803}
@@ -5222,13 +5227,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upkeeplist:
+  - upFood: 15
+    upWood: 15
+  - upFood: 20
+    upWood: 20
+  - upFood: 40
+    upWood: 40
   - upFood: 30
     upWood: 30
-  - upFood: 60
-    upWood: 60
+  - upFood: 70
+    upWood: 70
+  - upFood: 70
+    upWood: 70
+  - upFood: 90
+    upWood: 90
+  - upFood: 90
+    upWood: 90
+  - upFood: 100
+    upWood: 100
   - upFood: 100
     upWood: 100
   leaveCostList: []
+  MainMenu: {fileID: 836245961}
+  tMan: {fileID: 937057603}
+  wSpawn: {fileID: 937057601}
   day: 0
   dayText: {fileID: 294939401}
   player: {fileID: 1425747494}
@@ -5243,6 +5265,40 @@ MonoBehaviour:
   sfText: {fileID: 1305535654}
   swood: 0
   swText: {fileID: 1753712454}
+--- !u!114 &937057605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937057599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30df113bfe4a8bc439cfc1a025a22763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeadDelay: 1
+  DeadScreen: {fileID: 0}
 --- !u!4 &960011887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5451745308940800802, guid: 8b71d5478c5d46c4c94d36b0812d017d,

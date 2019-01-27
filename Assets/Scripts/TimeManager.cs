@@ -47,6 +47,7 @@ public class TimeManager : MonoBehaviour
         timer = mainTimer;
         canCount = true;
         doOnce = false;
+        pMan.enabled=true;
     }
 
     public void ActivateMenu()
