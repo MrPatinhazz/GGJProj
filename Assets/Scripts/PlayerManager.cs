@@ -7,8 +7,8 @@ public class PlayerManager : MonoBehaviour
     public float speed;
     public bool facingRight;
     public int posOffset;
-    public Animator animator; 
-       
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +21,8 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
 
-
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 5f;
-
-        
 
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
 
@@ -48,13 +45,11 @@ public class PlayerManager : MonoBehaviour
             if (facingRight)
             {
                 facingRight = false;
+
             }
         }
 
         this.GetComponent<SpriteRenderer>().flipX = facingRight;
-
-        Debug.Log(facingRight);
-
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
@@ -62,8 +57,7 @@ public class PlayerManager : MonoBehaviour
         animator.SetBool("mov", (x != 0.0f || y != 0.0f));
 
         Vector3 movement = new Vector3(x,y, 0.0f);
-
-        
+                
         transform.position += movement * speed * Time.deltaTime;
     }
 

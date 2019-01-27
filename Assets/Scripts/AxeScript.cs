@@ -15,17 +15,8 @@ public class AxeScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Tree")
-        {
-            Debug.Log("collision.gameObject.tag");
-        }
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Can cut");
         if(Input.GetButton("Fire1") && Time.time > _timeToSwing)
         {
             _timeToSwing = Time.time + 1 / swingRate;
@@ -33,11 +24,18 @@ public class AxeScript : MonoBehaviour
         }
     }
 
-    private void Swing(Collider2D _tree)
+    private void Swing(Collider2D col)
     {
-        TreeController cTree = _tree.gameObject.GetComponent<TreeController>();
-        cTree.DamageTree(swingDmg);
-        Debug.Log("Tree hit for " + swingDmg);
+        if (col.tag == "Tree")
+        {
+            TreeController cTree = col.gameObject.GetComponent<TreeController>();
+            cTree.DamageTree(swingDmg);
+            Debug.Log("Tree hit for " + swingDmg);
+        }
+        else if (col.tag == "Bush")
+        {
+            BushController cBush = col.gameObject.GetComponent<BushController>();
+            cBush.DamageBush(swingDmg);
+        }
     }
-
 }

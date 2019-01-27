@@ -5,6 +5,7 @@ using Pathfinding;
 public class WanderingDestinationSetter : MonoBehaviour
 {
     public float radius;
+    public bool facingRight;
 
     IAstarAI ai;
 
@@ -32,5 +33,9 @@ public class WanderingDestinationSetter : MonoBehaviour
             ai.destination = PickRandomPoint();
             ai.SearchPath();
         }
+
+        
+            GetComponentInChildren<SpriteRenderer>().flipX = (ai.destination.x > this.transform.position.x);
+        
     }
 }

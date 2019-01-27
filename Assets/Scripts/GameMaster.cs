@@ -4,6 +4,7 @@ using System.Collections;
 public class GameMaster : MonoBehaviour {
 
     public static GameMaster gm;
+    public GameObject youDiedText;
 
     void Awake()
     {
@@ -26,5 +27,10 @@ public class GameMaster : MonoBehaviour {
     public static void CutTree(TreeController tree)
     {
         Destroy(tree.gameObject);
+    }
+
+    public static void CutBush(BushController bush)
+    {
+        Destroy(bush.gameObject);
     }
 }
