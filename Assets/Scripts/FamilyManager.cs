@@ -22,6 +22,7 @@ public class FamilyManager : MonoBehaviour
     public LeaveCostList[] leaveCostList;
 
     public int day;
+    public Text dayText;
     public PlayerController player;
     public int wifeHp;
     public Text whText;
@@ -56,8 +57,9 @@ public class FamilyManager : MonoBehaviour
         
     }
 
-    void UpdateTexts()
+    public void UpdateTexts()
     {
+        dayText.text = "Day : " + day;
         whText.text = "Wife HP : " + wifeHp;
         khText.text = "Kid HP : " + kidHp;
         if(dogAlive)
@@ -93,6 +95,9 @@ public class FamilyManager : MonoBehaviour
             sfood -= upkeeplist[day].upFood;
             swood -= upkeeplist[day].upWood;
         }
+        UpdateUpKeep();
+        UpdateTexts();
+
     }
 
     public void GiveItems()
