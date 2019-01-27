@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndGame : MonoBehaviour
+public class EndPan : MonoBehaviour
 {
 
 
-    public float DeadDelay;
+    public float DeadDelay = 1f;
     public GameObject DeadScreen;
     // Start is called before the first frame update
 
@@ -20,18 +20,18 @@ public class EndGame : MonoBehaviour
 
     public static void GameEnd()
     {
-        DeadScreen.SetActive(true);
+        //DeadScreen.SetActive(true);
 
 
     }
     void Start()
     {
-        DeadDelay = 1f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
