@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
-    public float fireRate = 0;
-    public float damage = 10;
+    public float fireRate;
+    public float damage;
     public LayerMask notToHit;
 
     private float timeToFire = 0;
@@ -19,6 +19,9 @@ public class WeaponScript : MonoBehaviour
         {
             Debug.LogError("no firepoint?");
         }
+
+        fireRate = GetComponentInParent<PlayerController>().playerStats.FireRate;
+        damage = GetComponentInParent<PlayerController>().playerStats.GunDmg;
     }
 
     // Update is called once per frame

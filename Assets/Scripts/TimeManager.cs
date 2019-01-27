@@ -14,6 +14,9 @@ public class TimeManager : MonoBehaviour
     private bool canCount = true;
     private bool doOnce = false;
 
+    public GameObject mainMenu;
+    public WaveSpawner wvspawn;
+
     private void Start()
     {
         timer = mainTimer;
@@ -33,6 +36,7 @@ public class TimeManager : MonoBehaviour
             doOnce = true;
             uiText.text = "00.00";
             timer = 0.0f;
+            ActivateMenu();
         }
     }
 
@@ -41,5 +45,11 @@ public class TimeManager : MonoBehaviour
         timer = mainTimer;
         canCount = true;
         doOnce = false;
+    }
+
+    public void ActivateMenu()
+    {
+        wvspawn.StopWaves();
+        mainMenu.SetActive(true);
     }
 }

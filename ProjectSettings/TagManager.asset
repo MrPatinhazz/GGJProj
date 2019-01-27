@@ -8,6 +8,7 @@ TagManager:
   - GM
   - Tree
   - Bush
+  - DeathText
   layers:
   - Default
   - TransparentFX

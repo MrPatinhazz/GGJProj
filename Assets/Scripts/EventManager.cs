@@ -8,11 +8,11 @@ public class EventManager : MonoBehaviour
     public class Event
     {
         public string text;
-        public int momHp;
+        public int wifeHp;
         public int kidHp;
         public bool dogAlive;
-        public int upkeepCost;
-        public int leaveCost;
+        public int[] upkeepCost;
+        public int[] leaveCost;
         public int gunRate;
         public int gunDmg;
         public int axeRate;

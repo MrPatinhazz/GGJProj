@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour {
 		public int Health = 100;
         public int Wood = 0;
         public int Food = 0;
+        public int FireRate = 2;
+        public int GunDmg = 25;
+        public int SwingRate = 2;
+        public int SwingDmg = 35;
 	}
     
 	public PlayerStats playerStats = new PlayerStats();
@@ -45,4 +49,6 @@ public class PlayerController : MonoBehaviour {
         foodText.text = "Food : " + playerStats.Food;
         woodText.text = "Wood : " + playerStats.Wood;
     }
+
+
 }
