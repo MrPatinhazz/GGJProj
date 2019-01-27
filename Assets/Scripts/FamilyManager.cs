@@ -5,6 +5,24 @@ using UnityEngine.UI;
 
 public class FamilyManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class UpkeepList
+    {
+        public int upFood;
+        public int upWood;
+    }
+    public UpkeepList[] upkeeplist;
+
+    [System.Serializable]
+    public class LeaveCostList
+    {
+        public int costFood;
+        public int costWood;
+    }
+    public LeaveCostList[] leaveCostList;
+
+    public int day;
+    public PlayerController player;
     public int wifeHp;
     public Text whText;
 
@@ -14,8 +32,7 @@ public class FamilyManager : MonoBehaviour
     public bool dogAlive;
     public Text dogText;
 
-    public int[] upkeepCost;
-    public int[] leaveCost = new int[2];
+    public Text ukText;
 
     public int sfood;
     public Text sfText;
@@ -26,17 +43,10 @@ public class FamilyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        upkeepCost = new int[2];
-        leaveCost = new int[2];
-
+        day = 0;        
         wifeHp = 100;
         kidHp = 100;
         dogAlive = true;
-        upkeepCost[0] = 30;
-        upkeepCost[1] = 60;
-        leaveCost[0] = 100;
-        leaveCost[1] = 100;
-
         UpdateTexts();
     }
 
@@ -60,5 +70,36 @@ public class FamilyManager : MonoBehaviour
         }        
         sfText.text = "Food : " + sfood;
         swText.text = "Wood : " + swood;
+    }
+
+    public void UpdateUpKeep()
+    {
+        ukText.text = "Upkeep: Food " + upkeeplist[day].upFood + " and Wood " + upkeeplist[day].upWood;
+    }
+
+    public void Sleep()
+    {
+        day++;
+
+        if(upkeeplist[day].upFood > sfood || upkeeplist[day].upWood > swood)
+        {
+            wifeHp -= 15;
+            kidHp -= 15;
+            sfood = 0;
+            swood = 0;
+        }
+        else
+        {
+            sfood -= upkeeplist[day].upFood;
+            swood -= upkeeplist[day].upWood;
+        }
+    }
+
+    public void GiveItems()
+    {
+        sfood += player.playerStats.Food;
+        swood += player.playerStats.Wood;
+        player.playerStats.Food = 0;
+        player.playerStats.Wood = 0;
     }
 }
