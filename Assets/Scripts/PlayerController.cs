@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public class PlayerStats {
 		public int Health = 100;
         public int Wood = 0;
+        public int Food = 0;
 	}
 
 	public PlayerStats playerStats = new PlayerStats();
@@ -27,4 +28,8 @@ public class PlayerController : MonoBehaviour {
         playerStats.Wood += wood;
     }
 
+    public void GiveFood ( int food)
+    {
+        playerStats.Food += food;
+    }
 }
