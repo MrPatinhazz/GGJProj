@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -9,12 +10,16 @@ public class PlayerController : MonoBehaviour {
         public int Wood = 0;
         public int Food = 0;
 	}
-
+    
 	public PlayerStats playerStats = new PlayerStats();
 
-	void Update () {
+    public Text foodText;
+    public Text woodText;
 
-	}
+    public void Start()
+    {
+        UpdateStatText();
+    }
 
 	public void DamagePlayer (int damage) {
 		playerStats.Health -= damage;
@@ -26,10 +31,18 @@ public class PlayerController : MonoBehaviour {
     public void GiveWood (int wood)
     {
         playerStats.Wood += wood;
+        UpdateStatText();
     }
 
     public void GiveFood ( int food)
     {
         playerStats.Food += food;
+        UpdateStatText();
+    }
+
+    private void UpdateStatText()
+    {
+        foodText.text = "Food : " + playerStats.Food;
+        woodText.text = "Wood : " + playerStats.Wood;
     }
 }

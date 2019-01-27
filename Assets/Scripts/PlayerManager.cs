@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        this.GetComponent<SpriteRenderer>().flipX = !facingRight;
+        this.GetComponent<SpriteRenderer>().flipX = facingRight;
 
         Debug.Log(facingRight);
 

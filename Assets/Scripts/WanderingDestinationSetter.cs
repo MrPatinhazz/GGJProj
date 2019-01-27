@@ -4,7 +4,7 @@ using Pathfinding;
 
 public class WanderingDestinationSetter : MonoBehaviour
 {
-    public float radius = 20;
+    public float radius;
 
     IAstarAI ai;
 
@@ -15,7 +15,10 @@ public class WanderingDestinationSetter : MonoBehaviour
 
     Vector3 PickRandomPoint()
     {
-        Vector3 point = Random.insideUnitSphere * radius;
+        var point = Random.insideUnitSphere * radius;
+
+        point.y = 0;
+        point += ai.position;
         return point;
     }
 
@@ -29,10 +32,5 @@ public class WanderingDestinationSetter : MonoBehaviour
             ai.destination = PickRandomPoint();
             ai.SearchPath();
         }
-    }
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, 20);
     }
 }

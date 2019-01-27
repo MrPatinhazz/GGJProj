@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - GM
   - Tree
+  - Bush
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Enemy
   - GM
   - Tree
-  - 
-  - 
-  - 
+  - BigRock
+  - Bush
+  - House
   - 
   - 
   - 
@@ -44,9 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Menu
-    uniqueID: 3864191573
-    locked: 0
   - name: Tree
     uniqueID: 1987698177
     locked: 0
@@ -55,4 +53,7 @@ TagManager:
     locked: 0
   - name: Other
     uniqueID: 689984353
+    locked: 0
+  - name: Menu
+    uniqueID: 3864191573
     locked: 0
