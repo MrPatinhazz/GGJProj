@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
 
     public static GameMaster gm;
+ 
 
     void Awake()
     {
@@ -13,10 +15,7 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    public static void KillPlayer(PlayerController player)
-    {
-        Destroy(player.gameObject);
-    }
+   
 
     public static void KillEnemy(EnemyController enemy)
     {
@@ -34,4 +33,6 @@ public class GameMaster : MonoBehaviour {
         bush.stats.Health = 100;
         bush.gameObject.SetActive(false);
     }
+
+    
 }
