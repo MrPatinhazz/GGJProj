@@ -22,4 +22,9 @@ public class GameMaster : MonoBehaviour {
     {
         Destroy(enemy.gameObject);
     }
+
+    public static void CutTree(TreeController tree)
+    {
+        Destroy(tree.gameObject);
+    }
 }
