@@ -132,6 +132,7 @@ public class FamilyManager : MonoBehaviour
             sfood -= 40;
             _axeStats.swingDmg += 5;
             _axeStats.swingRate += 0.5f;
+            UpdateTexts();
         }
     }
 
@@ -143,6 +144,7 @@ public class FamilyManager : MonoBehaviour
             sfood -= 70;
             _gunStats.fireRate += 0.5f;
             _gunStats.Damage += 5;
+            UpdateTexts();
         }
 
     }
