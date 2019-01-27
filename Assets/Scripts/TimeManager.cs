@@ -18,6 +18,7 @@ public class TimeManager : MonoBehaviour
     public WaveSpawner wvspawn;
     public FamilyManager fMan;
     public PlayerManager pMan;
+    public PlayerController pContr;
 
     private void Start()
     {
@@ -48,6 +49,8 @@ public class TimeManager : MonoBehaviour
         canCount = true;
         doOnce = false;
         pMan.enabled=true;
+        pContr.UpdateStatText();
+
     }
 
     public void ActivateMenu()
@@ -56,8 +59,6 @@ public class TimeManager : MonoBehaviour
         pMan.enabled = false;
         fMan.GiveItems();
         fMan.UpdateTexts();
-        mainMenu.SetActive(true);
-        
-        
+        mainMenu.SetActive(true);        
     }
 }

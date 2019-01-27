@@ -24,6 +24,8 @@ public class FamilyManager : MonoBehaviour
     public GameObject MainMenu;
     public TimeManager tMan;
     public WaveSpawner wSpawn;
+    public AxeScript _axeStats;
+    public GunScript _gunStats;
 
     public int day;
     public Text dayText;
@@ -38,6 +40,7 @@ public class FamilyManager : MonoBehaviour
     public Text dogText;
 
     public Text ukText;
+    public Text leaveText;
 
     public int sfood;
     public Text sfText;
@@ -53,12 +56,6 @@ public class FamilyManager : MonoBehaviour
         kidHp = 100;
         dogAlive = true;
         UpdateTexts();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UpdateTexts()
@@ -107,6 +104,46 @@ public class FamilyManager : MonoBehaviour
         MainMenu.SetActive(false);
         tMan.RestartTimer();
 
+
+    }
+
+    public void UpdateLeave()
+    {
+        leaveText.text = "Leave: Food " + leaveCostList[day].costFood + " and Wood " + leaveCostList[day].costWood;
+    }
+
+    public void Leave()
+    {
+        if(leaveCostList[day].costFood < sfood && leaveCostList[day].costWood < swood)
+        {
+            Debug.Log("You Won");
+        }
+        else
+        {
+            leaveText.text = "Not enough resources stored. Go get some more";
+        }
+    }
+
+    public void UpgradeAxe()
+    {
+        if(swood >= 70 && sfood >= 40)
+        {
+            swood -= 70;
+            sfood -= 40;
+            _axeStats.swingDmg += 5;
+            _axeStats.swingRate += 0.5f;
+        }
+    }
+
+    public void UpgradeGun()
+    {
+        if (swood >= 100 && sfood >= 70)
+        {
+            swood -= 100;
+            sfood -= 70;
+            _gunStats.fireRate += 0.5f;
+            _gunStats.Damage += 5;
+        }
 
     }
 

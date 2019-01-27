@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class AxeScript : MonoBehaviour
 {
-    public GameObject tree;
-    public float swingRate = 1;
-    public int swingDmg = 35;
+    public float swingRate;
+    public int swingDmg;
     private float _timeToSwing = 0;
 
     // Start is called before the first frame update
